@@ -4,29 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MNB Home for the Blind | About</title>
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="/pages/styles.css" />
   </head>
   <body>
     <div class="page">
       <a class="skip-link" href="#main-content">Skip to main content</a>
       <header class="site-header">
         <div class="container header-inner">
-          <div class="brand">
+          <a class="brand" href="/">
             <img src="/images/logo.png" alt="MNB Home for the Blind logo" />
             <div>
               <p class="eyebrow">Recognised by Government of Maharashtra</p>
               <h1>The M.N. Banajee Industrial Home for the Blind</h1>
               <p class="tagline">Residential vocational training and empowerment for visually challenged men.</p>
             </div>
-          </div>
+          </a>
+          <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">☰</button>
           <nav class="nav" aria-label="Primary">
-            <a href="./index.html">Home</a>
-            <a href="./about.html">About</a>
-            <a href="./programmes.html">Programmes</a>
-            <a href="./gallery.html">Gallery</a>
-            <a href="./donate.html">Donate</a>
-            <a href="./contact.html">Contact</a>
-            <a class="button primary" href="./donate.html">Donate / Support</a>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/programmes">Programmes</a>
+            <a href="/gallery">Gallery</a>
+            <a href="/contact">Contact</a>
+            <a class="donate" href="/donate">Donate</a>
           </nav>
         </div>
       </header>
@@ -58,7 +58,7 @@
             <li>Motto: Each one reach one.</li>
           </ul>
           <div style="margin-top: 1rem;">
-            <a class="button" href="./programmes.html">Explore programmes</a>
+            <a class="button" href="/programmes">Explore programmes</a>
           </div>
         </section>
 
@@ -79,7 +79,48 @@
                 <li>Heads Braille Press and Talking Book Studio at NAB India, Mumbai.</li>
               </ul>
             </div>
-            <img src="/images/dr-vimal.jpg" alt="Dr. Vimal Kumar Dengla" />
+            <img src="/images/vimal-dengla.png" alt="Dr. Vimal Kumar Dengla" />
+          </div>
+        </section>
+
+        <section class="panel">
+          <p class="eyebrow">Leadership</p>
+          <div class="hero">
+            <div>
+              <h2>Ramakant Satam</h2>
+              <p class="lead">
+                Stepping in with deep experience from national disability leadership, Ramakant continues the work
+                previously outlined for Satya Kumar Singh—driving advocacy, organisation building, and policy influence
+                for visually impaired communities.
+              </p>
+              <ul class="list">
+                <li>Background in education, social activities, and advocacy for the visually impaired.</li>
+                <li>Leadership roles across national associations and councils focused on disability rights.</li>
+                <li>Track record in securing employment opportunities and policy relief for visually impaired persons.</li>
+                <li>Committed to expanding outreach and support for MNB trainees and alumni.</li>
+              </ul>
+            </div>
+            <img src="/images/ramakant-satam.jpeg" alt="Ramakant Satam" />
+          </div>
+        </section>
+
+        <section class="panel">
+          <p class="eyebrow">Leadership</p>
+          <div class="hero">
+            <div>
+              <h2>Vijay Ramji Kajolkar</h2>
+              <p class="lead">
+                Trustee &amp; Treasurer since 2016. Brings decades of grassroots experience helping visually impaired
+                individuals access employment, self-employment support, and community aid across India’s state branches.
+              </p>
+              <ul class="list">
+                <li>Over 40 years working through National Bloc Kalyan Sangh to enable jobs and self-employment.</li>
+                <li>Hands-on support for village outreach, micro-business setup, and essential supplies distribution.</li>
+                <li>Experience with blind housing projects and welfare committees across multiple organisations.</li>
+                <li>Focus on practical assistance: stalls, telephone booths, and in-kind resources for sustainable income.</li>
+              </ul>
+            </div>
+            <img src="/images/vijay-kajolkar.jpg" alt="Vijay Ramji Kajolkar" />
           </div>
         </section>
       </main>
@@ -88,13 +129,24 @@
         <div class="container">
           <div>© 2025 MNB Home for the Blind. All rights reserved.</div>
           <div class="footer-links">
-            <a href="./index.html">Home</a>
-            <a href="./donate.html">Support</a>
-            <a href="./contact.html">Contact</a>
+            <a href="/">Home</a>
+            <a href="/donate">Support</a>
+            <a href="/contact">Contact</a>
           </div>
         </div>
       </footer>
     </div>
-  </body>
+  <script>
+  (function() {
+    const navToggle = document.querySelector(".nav-toggle");
+    const nav = document.querySelector(".nav");
+    if (!navToggle || !nav) return;
+    navToggle.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+  })();
+</script>
+</body>
 </html>
 

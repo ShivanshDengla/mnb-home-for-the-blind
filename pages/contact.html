@@ -4,29 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MNB Home for the Blind | Contact</title>
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="/pages/styles.css" />
   </head>
   <body>
     <div class="page">
       <a class="skip-link" href="#main-content">Skip to main content</a>
       <header class="site-header">
         <div class="container header-inner">
-          <div class="brand">
+          <a class="brand" href="/">
             <img src="/images/logo.png" alt="MNB Home for the Blind logo" />
             <div>
               <p class="eyebrow">Recognised by Government of Maharashtra</p>
               <h1>The M.N. Banajee Industrial Home for the Blind</h1>
               <p class="tagline">Residential vocational training and empowerment for visually challenged men.</p>
             </div>
-          </div>
+          </a>
+          <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">☰</button>
           <nav class="nav" aria-label="Primary">
-            <a href="./index.html">Home</a>
-            <a href="./about.html">About</a>
-            <a href="./programmes.html">Programmes</a>
-            <a href="./gallery.html">Gallery</a>
-            <a href="./donate.html">Donate</a>
-            <a href="./contact.html">Contact</a>
-            <a class="button primary" href="./donate.html">Donate / Support</a>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/programmes">Programmes</a>
+            <a href="/gallery">Gallery</a>
+            <a href="/contact">Contact</a>
+            <a class="donate" href="/donate">Donate</a>
           </nav>
         </div>
       </header>
@@ -40,7 +40,7 @@
               <h3>Visit</h3>
               <p>
                 Chateau Dieu, 280 Swami Vivekanand Road<br />
-                Jogeshwari (W), Mumbai 400 102
+                Jogeshwari (W), Mumbai 400 102.
               </p>
             </div>
             <div class="contact-card">
@@ -63,13 +63,24 @@
         <div class="container">
           <div>© 2025 MNB Home for the Blind. All rights reserved.</div>
           <div class="footer-links">
-            <a href="./index.html">Home</a>
-            <a href="./donate.html">Support</a>
-            <a href="./contact.html">Contact</a>
+            <a href="/">Home</a>
+            <a href="/donate">Support</a>
+            <a href="/contact">Contact</a>
           </div>
         </div>
       </footer>
     </div>
-  </body>
+  <script>
+  (function() {
+    const navToggle = document.querySelector(".nav-toggle");
+    const nav = document.querySelector(".nav");
+    if (!navToggle || !nav) return;
+    navToggle.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+  })();
+</script>
+</body>
 </html>
 

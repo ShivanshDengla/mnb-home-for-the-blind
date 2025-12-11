@@ -4,29 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MNB Home for the Blind | Programmes</title>
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="/pages/styles.css" />
   </head>
   <body>
     <div class="page">
       <a class="skip-link" href="#main-content">Skip to main content</a>
       <header class="site-header">
         <div class="container header-inner">
-          <div class="brand">
+          <a class="brand" href="/">
             <img src="/images/logo.png" alt="MNB Home for the Blind logo" />
             <div>
               <p class="eyebrow">Recognised by Government of Maharashtra</p>
               <h1>The M.N. Banajee Industrial Home for the Blind</h1>
               <p class="tagline">Residential vocational training and empowerment for visually challenged men.</p>
             </div>
-          </div>
+          </a>
+          <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">☰</button>
           <nav class="nav" aria-label="Primary">
-            <a href="./index.html">Home</a>
-            <a href="./about.html">About</a>
-            <a href="./programmes.html">Programmes</a>
-            <a href="./gallery.html">Gallery</a>
-            <a href="./donate.html">Donate</a>
-            <a href="./contact.html">Contact</a>
-            <a class="button primary" href="./donate.html">Donate / Support</a>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/programmes">Programmes</a>
+            <a href="/gallery">Gallery</a>
+            <a href="/contact">Contact</a>
+            <a class="donate" href="/donate">Donate</a>
           </nav>
         </div>
       </header>
@@ -35,51 +35,66 @@
         <section class="panel">
           <p class="eyebrow">Programmes</p>
           <h2>Training that leads to livelihoods</h2>
-          <p class="lead">Practical skills, technology, and entrepreneurial support to meet each trainee where they are.</p>
+          <p class="lead">
+            Practical skills, technology, and entrepreneurial support to meet each trainee where they are.
+          </p>
           <div class="card-grid">
             <div class="card">
-              <h3>Massage training</h3>
-              <p>Foot and chair massage courses that expand employment opportunities for trainees.</p>
+              <h3>Massage Training programme</h3>
+              <p>
+                Foot &amp; chair massage courses expand employment opportunities for trainees as part of the
+                vocational skill set.
+              </p>
             </div>
             <div class="card">
-              <h3>Advanced computer training</h3>
-              <p>MNB–TCS All-India centre grooming visually challenged learners in MS-CIT and advanced skills.</p>
+              <h3>All-India Advanced Training Centre in Computers (2008)</h3>
+              <p>
+                MNB–TCS centre grooming visually challenged learners in MS-CIT and advanced skills for corporates,
+                banks, and businesses.
+              </p>
             </div>
             <div class="card">
-              <h3>Computer centre</h3>
-              <p>MS-CIT and basic computing with screen readers covering Word, Excel, PowerPoint, and internet use.</p>
+              <h3>Computer Centre (2006)</h3>
+              <p>
+                Basic computing and MS-CIT with screen readers (JAWS), covering Word, Excel, PowerPoint, and Internet;
+                first MS-CIT centre in Mumbai for visually challenged persons.
+              </p>
             </div>
             <div class="card">
               <h3>Self-employment schemes</h3>
-              <p>Mini and Maxi schemes offer equipment and materials in kind so trainees can start sustainable businesses.</p>
+              <p>
+                Mini &amp; Maxi schemes provide in-kind equipment and materials—mills, candle/envelope units, shops,
+                tea-vending, stationery, etc.—so trainees can run sustainable local businesses.
+              </p>
             </div>
             <div class="card">
-              <h3>Subsidised hostel</h3>
-              <p>Affordable accommodation for visually impaired men relocating to Mumbai while they establish careers.</p>
+              <h3>Subsidised hostel (2001)</h3>
+              <p>Affordable temporary accommodation for visually impaired men relocating to Mumbai while they start their careers.</p>
             </div>
             <div class="card">
-              <h3>Vocational training</h3>
-              <p>Four-year residential programme with weaving, handloom, tailoring, cane work, and other trades.</p>
+              <h3>Vocational training (1956)</h3>
+              <p>
+                Four-year residential programme with weaving, handloom, tailoring, cane work, paper plates, candles,
+                hangers—pocket money and stipends during training.
+              </p>
             </div>
           </div>
         </section>
 
         <section class="panel">
-          <p class="eyebrow">Facilities &amp; support</p>
-          <div class="card-grid">
-            <div class="card">
-              <h3>Medical &amp; recreation</h3>
-              <p>Low-vision treatment, music, chess, carrom, and home gym for holistic wellbeing.</p>
-            </div>
-            <div class="card">
-              <h3>In-kind support</h3>
-              <p>Equipment, materials, and operational help instead of cash to set up sustainable livelihoods.</p>
-            </div>
-            <div class="card">
-              <h3>Career readiness</h3>
-              <p>IT and vocational pathways designed to match abilities and employer expectations.</p>
-            </div>
-          </div>
+          <p class="eyebrow">Medical &amp; recreation</p>
+          <p class="lead">
+            Residents receive low-vision treatment from a qualified optometrist and have recreational facilities:
+            musical instruments, chess, carrom, and a home gym.
+          </p>
+        </section>
+
+        <section class="panel">
+          <p class="eyebrow">In-kind support</p>
+          <p class="lead">
+            Assistance is provided in kind—not cash—to set up sustainable livelihoods, matching each trainee’s capability
+            and local opportunities.
+          </p>
         </section>
       </main>
 
@@ -87,13 +102,24 @@
         <div class="container">
           <div>© 2025 MNB Home for the Blind. All rights reserved.</div>
           <div class="footer-links">
-            <a href="./index.html">Home</a>
-            <a href="./donate.html">Support</a>
-            <a href="./contact.html">Contact</a>
+            <a href="/">Home</a>
+            <a href="/donate">Support</a>
+            <a href="/contact">Contact</a>
           </div>
         </div>
       </footer>
     </div>
-  </body>
+  <script>
+  (function() {
+    const navToggle = document.querySelector(".nav-toggle");
+    const nav = document.querySelector(".nav");
+    if (!navToggle || !nav) return;
+    navToggle.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+  })();
+</script>
+</body>
 </html>
 
