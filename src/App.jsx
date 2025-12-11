@@ -1,26 +1,27 @@
-import { useEffect } from 'react'
 import './App.css'
 
-const HOME_PATH = '/pages/index.html'
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/programmes', label: 'Programmes' },
+  { href: '/gallery', label: 'Gallery' },
+  { href: '/contact', label: 'Contact' },
+  { href: '/donate', label: 'Donate' },
+]
 
 function App() {
-  useEffect(() => {
-    // Skip the landing card entirely and send visitors straight to the home page.
-    if (window?.location?.pathname !== HOME_PATH) {
-      window.location.replace(HOME_PATH)
-    }
-  }, [])
-
   return (
     <div className="landing">
       <div className="landing-card">
         <img className="logo" src="/images/logo.png" alt="MNB Home for the Blind logo" />
         <h1>M.N.B Industrial Home for the Blind</h1>
-        <p className="tagline">Taking you to the home page…</p>
+        <p className="tagline">Choose a page to continue.</p>
         <div className="link-grid">
-          <a className="button primary" href={HOME_PATH}>
-            Go now
-          </a>
+          {links.map(({ href, label }) => (
+            <a key={href} className="button primary" href={href}>
+              {label}
+            </a>
+          ))}
         </div>
       </div>
     </div>

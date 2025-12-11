@@ -50,10 +50,31 @@ const serveFriendlyRoutes = () => ({
 const copyPagesToDist = () => ({
   name: 'copy-pages-to-dist',
   closeBundle() {
-    const destDir = path.resolve(__dirname, 'dist/pages')
-    fs.rmSync(destDir, { recursive: true, force: true })
-    fs.mkdirSync(destDir, { recursive: true })
-    fs.cpSync(pagesDir, destDir, { recursive: true })
+    const distDir = path.resolve(__dirname, 'dist')
+    const destPagesDir = path.join(distDir, 'pages')
+
+    // Keep the original folder of static pages for direct linking (e.g. /pages/programmes.html)
+    fs.rmSync(destPagesDir, { recursive: true, force: true })
+    fs.mkdirSync(destPagesDir, { recursive: true })
+    fs.cpSync(pagesDir, destPagesDir, { recursive: true })
+
+    // Also publish pretty URLs so /about, /programmes, etc. resolve without redirects.
+    Object.entries(friendlyRoutes).forEach(([route, filename]) => {
+      const source = path.join(pagesDir, filename)
+      if (!fs.existsSync(source)) return
+
+      const targetDir = route === '/' ? distDir : path.join(distDir, route.replace(/^\//, ''))
+      fs.mkdirSync(targetDir, { recursive: true })
+      const targetPath = path.join(targetDir, 'index.html')
+      fs.copyFileSync(source, targetPath)
+    })
+
+    // Ensure Netlify-style redirects file is present in the final bundle.
+    const redirectsSrc = path.resolve(__dirname, 'public/_redirects')
+    const redirectsDest = path.join(distDir, '_redirects')
+    if (fs.existsSync(redirectsSrc)) {
+      fs.copyFileSync(redirectsSrc, redirectsDest)
+    }
   },
 })
 

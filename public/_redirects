@@ -1,10 +1,10 @@
-/ /pages/index.html 200
-/about /pages/about.html 200
-/programmes /pages/programmes.html 200
-/gallery /pages/gallery.html 200
-/donate /pages/donate.html 200
-/contact /pages/contact.html 200
-/successstories /pages/successstories.html 200
-/support /pages/support.html 200
-/testimonials /pages/testimonials.html 200
+/ /index.html 200
+/about /about/index.html 200
+/programmes /programmes/index.html 200
+/gallery /gallery/index.html 200
+/donate /donate/index.html 200
+/contact /contact/index.html 200
+/successstories /successstories/index.html 200
+/support /support/index.html 200
+/testimonials /testimonials/index.html 200
 
